@@ -12,6 +12,7 @@ import _ from 'lodash';
 import color from 'tinycolor2';
 
 import { connectStyle } from '@shoutem/theme';
+import { Device } from "@shoutem/ui/helpers/device-selector.js";
 import { connectAnimation } from '@shoutem/animation';
 
 import composeChildren from './composeChildren';
@@ -30,7 +31,7 @@ function setStatusBarStyle(backgroundColor) {
   }
 
   function setStyle(bgColor) {
-    const { statusBarColor } = this.props;
+    const { statusBarColor } = this.props ? this.props : { statusBarColor: bgColor };
 
     const color = statusBarColor || bgColor;
 
